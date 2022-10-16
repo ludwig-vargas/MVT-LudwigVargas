@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from my_family.views import hello_world
+from family.views import create_familiar
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hello-world/', hello_world),
+    path('create_familiar/<str:name>/<str:last_name>/<int:numberphone>/<str:due_date>/', create_familiar),
 ]
