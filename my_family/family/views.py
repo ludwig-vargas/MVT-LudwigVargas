@@ -14,4 +14,14 @@ def create_familiar(request, name: str, last_name: str, numberphone: int, due_da
     context_dict = {'family': family}
     render = template.render(context_dict)
     return HttpResponse(render)
+
+def familiar(request):
+    familiar = Familiar.objects.all()
     
+    context_dict = {'familiar': familiar}
+    
+    return render(
+        request=request,
+        context=context_dict,
+        template_name='family/family_list.html',
+    )    
